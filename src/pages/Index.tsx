@@ -12,7 +12,7 @@ const Index = () => {
         <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
           {/* Content positioned at bottom */}
           <div className="absolute bottom-0 left-0 right-0 px-8 pb-16">
-            <div className="text-center mb-12">
+            <div className="text-left mb-12">
               <h1 className="text-3xl font-medium mb-4" style={{ 
                 fontFamily: 'Rubik', 
                 fontWeight: 500, 
@@ -55,7 +55,7 @@ const Index = () => {
                 className="w-full h-12 font-medium rounded-lg border-0"
                 style={{ 
                   backgroundColor: '#6C25FF4B',
-                  color: '#6C25FF',
+                  color: '#1D2226',
                   fontFamily: 'Rubik',
                   fontWeight: 500,
                   fontSize: '16px'

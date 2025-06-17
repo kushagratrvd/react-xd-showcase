@@ -34,7 +34,7 @@ const Signup = () => {
         <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
           {/* Content with scroll */}
           <div className="h-full overflow-y-auto px-8 py-12">
-            <div className="text-center mb-8">
+            <div className="text-left mb-8">
               <h1 style={{
                 fontFamily: 'Rubik',
                 fontWeight: 500,
@@ -64,7 +64,13 @@ const Signup = () => {
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
                   className="mt-1 h-12 rounded-lg"
-                  style={{ borderColor: '#CBCBCB' }}
+                  style={{ 
+                    borderColor: '#CBCBCB',
+                    fontFamily: 'Rubik',
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    color: '#1D2226'
+                  }}
                 />
               </div>
               
@@ -83,7 +89,13 @@ const Signup = () => {
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                   className="mt-1 h-12 rounded-lg"
-                  style={{ borderColor: '#CBCBCB' }}
+                  style={{ 
+                    borderColor: '#CBCBCB',
+                    fontFamily: 'Rubik',
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    color: '#1D2226'
+                  }}
                 />
               </div>
               
@@ -103,7 +115,13 @@ const Signup = () => {
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className="mt-1 h-12 rounded-lg"
-                  style={{ borderColor: '#CBCBCB' }}
+                  style={{ 
+                    borderColor: '#CBCBCB',
+                    fontFamily: 'Rubik',
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    color: '#1D2226'
+                  }}
                 />
               </div>
               
@@ -123,7 +141,13 @@ const Signup = () => {
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
                   className="mt-1 h-12 rounded-lg"
-                  style={{ borderColor: '#CBCBCB' }}
+                  style={{ 
+                    borderColor: '#CBCBCB',
+                    fontFamily: 'Rubik',
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    color: '#1D2226'
+                  }}
                 />
               </div>
               
@@ -142,7 +166,13 @@ const Signup = () => {
                   value={formData.companyName}
                   onChange={(e) => handleInputChange('companyName', e.target.value)}
                   className="mt-1 h-12 rounded-lg"
-                  style={{ borderColor: '#CBCBCB' }}
+                  style={{ 
+                    borderColor: '#CBCBCB',
+                    fontFamily: 'Rubik',
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    color: '#1D2226'
+                  }}
                 />
               </div>
               
@@ -201,20 +231,22 @@ const Signup = () => {
                 </div>
               </div>
               
-              <Button 
-                onClick={handleSubmit}
-                className="w-full h-12 text-white font-medium rounded-lg mt-8 border-0"
-                style={{
-                  backgroundColor: '#6C25FF',
-                  fontFamily: 'Rubik',
-                  fontWeight: 500,
-                  fontSize: '16px',
-                  color: '#FFFFFF',
-                  lineHeight: '17px'
-                }}
-              >
-                Create Account
-              </Button>
+              <div className="pt-8">
+                <Button 
+                  onClick={handleSubmit}
+                  className="w-full h-12 text-white font-medium rounded-lg border-0"
+                  style={{
+                    backgroundColor: '#6C25FF',
+                    fontFamily: 'Rubik',
+                    fontWeight: 500,
+                    fontSize: '16px',
+                    color: '#FFFFFF',
+                    lineHeight: '17px'
+                  }}
+                >
+                  Create Account
+                </Button>
+              </div>
             </div>
           </div>
         </div>

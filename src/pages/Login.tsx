@@ -24,7 +24,7 @@ const Login = () => {
         <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
           {/* Content centered in mobile frame */}
           <div className="flex flex-col justify-center h-full px-8">
-            <div className="text-center mb-8">
+            <div className="text-left mb-8">
               <h1 style={{
                 fontFamily: 'Rubik',
                 fontWeight: 500,
@@ -37,16 +37,21 @@ const Login = () => {
                 PopX account
               </h1>
               <div className="space-y-1">
-                <p className="text-sm px-3 py-1 rounded inline-block" style={{
-                  color: '#6C25FF',
-                  border: '1px solid #6C25FF'
+                <p style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '14px',
+                  color: '#1D2226',
+                  lineHeight: '18px'
                 }}>
                   Lorem ipsum dolor sit amet,
                 </p>
-                <br />
-                <p className="text-sm px-3 py-1 rounded inline-block" style={{
-                  color: '#6C25FF',
-                  border: '1px solid #6C25FF'
+                <p style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '14px',
+                  color: '#1D2226',
+                  lineHeight: '18px'
                 }}>
                   consectetur adipiscing elit.
                 </p>
@@ -114,7 +119,7 @@ const Login = () => {
                 onClick={handleLogin}
                 className="w-full h-12 text-white font-medium rounded-lg mt-8 border-0"
                 style={{
-                  backgroundColor: '#6C25FF',
+                  backgroundColor: '#CBCBCB',
                   fontFamily: 'Rubik',
                   fontWeight: 500,
                   fontSize: '16px',
