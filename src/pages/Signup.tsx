@@ -28,87 +28,134 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#F7F8F9' }}>
       <div className="w-full max-w-sm mx-auto bg-white rounded-lg shadow-lg">
         {/* Mobile App Container */}
         <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
           {/* Content with scroll */}
           <div className="h-full overflow-y-auto px-8 py-12">
             <div className="text-center mb-8">
-              <h1 className="text-2xl font-medium text-gray-900 mb-2">
-                Create your
-              </h1>
-              <h1 className="text-2xl font-medium text-gray-900 mb-6">
+              <h1 style={{
+                fontFamily: 'Rubik',
+                fontWeight: 500,
+                fontSize: '28px',
+                color: '#1D2226',
+                lineHeight: '36px',
+                marginBottom: '24px'
+              }}>
+                Create your<br />
                 PopX account
               </h1>
             </div>
             
             <div className="space-y-4">
               <div>
-                <Label className="text-blue-600 text-sm font-medium">
-                  Full Name*
+                <Label style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#6C25FF',
+                  lineHeight: '17px'
+                }}>
+                  Full Name<span style={{ color: '#DD4A3D' }}>*</span>
                 </Label>
                 <Input
                   placeholder="Marry Doe"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="mt-1 h-12 border-gray-200 rounded-lg"
+                  className="mt-1 h-12 rounded-lg"
+                  style={{ borderColor: '#CBCBCB' }}
                 />
               </div>
               
               <div>
-                <Label className="text-blue-600 text-sm font-medium">
-                  Phone number*
+                <Label style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#6C25FF',
+                  lineHeight: '17px'
+                }}>
+                  Phone number<span style={{ color: '#DD4A3D' }}>*</span>
                 </Label>
                 <Input
                   placeholder="Marry Doe"
                   value={formData.phoneNumber}
                   onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="mt-1 h-12 border-gray-200 rounded-lg"
+                  className="mt-1 h-12 rounded-lg"
+                  style={{ borderColor: '#CBCBCB' }}
                 />
               </div>
               
               <div>
-                <Label className="text-blue-600 text-sm font-medium">
-                  Email address*
+                <Label style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#6C25FF',
+                  lineHeight: '17px'
+                }}>
+                  Email address<span style={{ color: '#DD4A3D' }}>*</span>
                 </Label>
                 <Input
                   type="email"
                   placeholder="Marry Doe"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="mt-1 h-12 border-gray-200 rounded-lg"
+                  className="mt-1 h-12 rounded-lg"
+                  style={{ borderColor: '#CBCBCB' }}
                 />
               </div>
               
               <div>
-                <Label className="text-blue-600 text-sm font-medium">
-                  Password *
+                <Label style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#6C25FF',
+                  lineHeight: '17px'
+                }}>
+                  Password <span style={{ color: '#DD4A3D' }}>*</span>
                 </Label>
                 <Input
                   type="password"
                   placeholder="Marry Doe"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
-                  className="mt-1 h-12 border-gray-200 rounded-lg"
+                  className="mt-1 h-12 rounded-lg"
+                  style={{ borderColor: '#CBCBCB' }}
                 />
               </div>
               
               <div>
-                <Label className="text-pink-500 text-sm font-medium">
+                <Label style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#6C25FF',
+                  lineHeight: '17px'
+                }}>
                   Company name
                 </Label>
                 <Input
                   placeholder="Marry Doe"
                   value={formData.companyName}
                   onChange={(e) => handleInputChange('companyName', e.target.value)}
-                  className="mt-1 h-12 border-gray-200 rounded-lg"
+                  className="mt-1 h-12 rounded-lg"
+                  style={{ borderColor: '#CBCBCB' }}
                 />
               </div>
               
               <div className="pt-4">
-                <p className="text-gray-700 text-sm font-medium mb-3">
-                  Are you an Agency?*
+                <p style={{
+                  fontFamily: 'Rubik',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#1D2226',
+                  lineHeight: '17px',
+                  marginBottom: '12px'
+                }}>
+                  Are you an Agency?<span style={{ color: '#DD4A3D' }}>*</span>
                 </p>
                 <div className="flex gap-6">
                   <label className="flex items-center">
@@ -117,9 +164,19 @@ const Signup = () => {
                       name="agency" 
                       checked={formData.isAgency}
                       onChange={() => setFormData(prev => ({ ...prev, isAgency: true }))}
-                      className="w-4 h-4 text-blue-600"
+                      className="w-4 h-4"
+                      style={{ 
+                        accentColor: '#642AF5',
+                        borderColor: '#919191'
+                      }}
                     />
-                    <span className="ml-2 text-gray-700">Yes</span>
+                    <span className="ml-2" style={{
+                      fontFamily: 'Rubik',
+                      fontWeight: 400,
+                      fontSize: '14px',
+                      color: '#1D2226',
+                      lineHeight: '17px'
+                    }}>Yes</span>
                   </label>
                   <label className="flex items-center">
                     <input 
@@ -127,16 +184,34 @@ const Signup = () => {
                       name="agency" 
                       checked={!formData.isAgency}
                       onChange={() => setFormData(prev => ({ ...prev, isAgency: false }))}
-                      className="w-4 h-4 text-blue-600"
+                      className="w-4 h-4"
+                      style={{ 
+                        accentColor: '#642AF5',
+                        borderColor: '#919191'
+                      }}
                     />
-                    <span className="ml-2 text-gray-700">No</span>
+                    <span className="ml-2" style={{
+                      fontFamily: 'Rubik',
+                      fontWeight: 400,
+                      fontSize: '14px',
+                      color: '#1D2226',
+                      lineHeight: '17px'
+                    }}>No</span>
                   </label>
                 </div>
               </div>
               
               <Button 
                 onClick={handleSubmit}
-                className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg mt-8"
+                className="w-full h-12 text-white font-medium rounded-lg mt-8 border-0"
+                style={{
+                  backgroundColor: '#6C25FF',
+                  fontFamily: 'Rubik',
+                  fontWeight: 500,
+                  fontSize: '16px',
+                  color: '#FFFFFF',
+                  lineHeight: '17px'
+                }}
               >
                 Create Account
               </Button>
