@@ -1,9 +1,11 @@
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+"use client"
+
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -11,27 +13,27 @@ const Signup = () => {
     password: "",
     companyName: "",
     isAgency: "yes",
-  });
+  })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
-  const handleRadioChange = (value: string) => {
+  const handleRadioChange = (value) => {
     setFormData((prev) => ({
       ...prev,
       isAgency: value,
-    }));
-  };
+    }))
+  }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    navigate("/profile");
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    navigate("/profile")
+  }
 
   return (
     <div className="page-container">
@@ -124,32 +126,32 @@ const Signup = () => {
                   Are you an Agency?<span className="required">*</span>
                 </label>
                 <div className="radio-group">
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="isAgency"
-                      value="yes"
-                      checked={formData.isAgency === "yes"}
-                      onChange={() => handleRadioChange("yes")}
-                      className="radio-input"
-                    />
-                    <span className="radio-custom"></span>
-                    <span className="radio-text">Yes</span>
-                  </label>
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="isAgency"
-                      value="no"
-                      checked={formData.isAgency === "no"}
-                      onChange={() => handleRadioChange("no")}
-                      className="radio-input"
-                    />
-                    <span className="radio-custom"></span>
-                    <span className="radio-text">No</span>
-                  </label>
-                </div>
+                <label className="radio-option">
+                  <input
+                    type="radio"
+                    name="isAgency"
+                    value="yes"
+                    checked={formData.isAgency === "yes"}
+                    onChange={() => handleRadioChange("yes")}
+                    className="radio-input"
+                  />
+                  <span className="radio-custom"></span>
+                  <span className="radio-text">Yes</span>
+                </label>
+                <label className="radio-option">
+                  <input
+                    type="radio"
+                    name="isAgency"
+                    value="no"
+                    checked={formData.isAgency === "no"}
+                    onChange={() => handleRadioChange("no")}
+                    className="radio-input"
+                  />
+                  <span className="radio-custom"></span>
+                  <span className="radio-text">No</span>
+                </label>
               </div>
+            </div>
             </div>
 
             <button type="submit" className="signup-submit-btn">
@@ -159,7 +161,7 @@ const Signup = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

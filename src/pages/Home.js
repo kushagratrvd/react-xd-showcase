@@ -1,8 +1,10 @@
 
-import { useNavigate } from "react-router-dom";
+"use client"
 
-const Index = () => {
-  const navigate = useNavigate();
+import { useNavigate } from "react-router-dom"
+
+const Home = () => {
+  const navigate = useNavigate()
 
   return (
     <div className="page-container">
@@ -24,7 +26,7 @@ const Index = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Home

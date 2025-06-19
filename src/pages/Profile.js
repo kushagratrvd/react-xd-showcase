@@ -15,21 +15,29 @@ const Profile = () => {
             <div className="profile-info-row">
               <div className="profile-image-container">
                 <img
-                  src="/lovable-uploads/5a50d590-cc20-46b3-b71b-4c2b59bd1f66.png"
+                  src={`${process.env.PUBLIC_URL}/profile-image.webp`}
                   alt="Profile"
                   className="profile-img"
                   onError={(e) => {
-                    console.log("Profile image failed, using fallback...");
-                    (e.target as HTMLImageElement).src = "https://via.placeholder.com/76x76/E5E5E5/999999?text=Profile";
+                    console.log("WebP failed, trying PNG...")
+                    e.target.src = `${process.env.PUBLIC_URL}/profile-image.png`
+                    e.target.onerror = () => {
+                      console.log("PNG failed, using fallback...")
+                      e.target.src = "https://via.placeholder.com/76x76/E5E5E5/999999?text=Profile"
+                    }
                   }}
                 />
                 <img
-                  src="/lovable-uploads/8e371d3c-ea89-4a37-b4d0-46dc96419ffe.png"
+                  src={`${process.env.PUBLIC_URL}/purple-icon.webp`}
                   alt="Camera"
                   className="profile-icon"
                   onError={(e) => {
-                    console.log("Icon failed, using fallback...");
-                    (e.target as HTMLImageElement).src = "https://via.placeholder.com/20x20/6C25FF/FFFFFF?text=📷";
+                    console.log("Icon WebP failed, trying PNG...")
+                    e.target.src = `${process.env.PUBLIC_URL}/purple-icon.png`
+                    e.target.onerror = () => {
+                      console.log("Icon PNG failed, using fallback...")
+                      e.target.src = "https://via.placeholder.com/20x20/6C25FF/FFFFFF?text=📷"
+                    }
                   }}
                 />
               </div>
@@ -49,7 +57,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
