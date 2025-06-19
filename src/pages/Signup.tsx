@@ -1,9 +1,6 @@
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -13,242 +10,152 @@ const Signup = () => {
     email: "",
     password: "",
     companyName: "",
-    isAgency: true
+    isAgency: "yes",
   });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = () => {
-    // Simple validation for demo
-    if (formData.fullName && formData.email && formData.password) {
-      navigate('/profile');
-    }
+  const handleRadioChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      isAgency: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/profile");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#F7F8F9' }}>
-      <div className="w-full max-w-sm mx-auto bg-white rounded-lg shadow-lg">
-        {/* Mobile App Container */}
-        <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
-          {/* Content with scroll */}
-          <div className="h-full overflow-y-auto px-8 py-12">
-            <div className="text-left mb-8">
-              <h1 style={{
-                fontFamily: 'Rubik',
-                fontWeight: 500,
-                fontSize: '28px',
-                color: '#1D2226',
-                lineHeight: '36px',
-                marginBottom: '24px'
-              }}>
-                Create your<br />
-                PopX account
-              </h1>
+    <div className="page-container">
+      <div className="mobile-container">
+        <div className="form-wrapper">
+          <div className="form-header">
+            <h1 className="signup-title">
+              Create your
+              <br />
+              PopX account
+            </h1>
+          </div>
+
+          <form onSubmit={handleSubmit} className="signup-form">
+            <div className="form-group">
+              <label className="signup-label">
+                Full Name<span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                placeholder="Marry Doe"
+                className="signup-input"
+                required
+              />
             </div>
-            
-            <div className="space-y-4">
-              <div>
-                <Label style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Full Name<span style={{ color: '#DD4A3D' }}>*</span>
-                </Label>
-                <Input
-                  placeholder="Marry Doe"
-                  value={formData.fullName}
-                  onChange={(e) => handleInputChange('fullName', e.target.value)}
-                  className="mt-1 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#1D2226'
-                  }}
-                />
-              </div>
-              
-              <div>
-                <Label style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Phone number<span style={{ color: '#DD4A3D' }}>*</span>
-                </Label>
-                <Input
-                  placeholder="Marry Doe"
-                  value={formData.phoneNumber}
-                  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                  className="mt-1 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#1D2226'
-                  }}
-                />
-              </div>
-              
-              <div>
-                <Label style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Email address<span style={{ color: '#DD4A3D' }}>*</span>
-                </Label>
-                <Input
-                  type="email"
-                  placeholder="Marry Doe"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="mt-1 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#1D2226'
-                  }}
-                />
-              </div>
-              
-              <div>
-                <Label style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Password <span style={{ color: '#DD4A3D' }}>*</span>
-                </Label>
-                <Input
-                  type="password"
-                  placeholder="Marry Doe"
-                  value={formData.password}
-                  onChange={(e) => handleInputChange('password', e.target.value)}
-                  className="mt-1 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#1D2226'
-                  }}
-                />
-              </div>
-              
-              <div>
-                <Label style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Company name
-                </Label>
-                <Input
-                  placeholder="Marry Doe"
+
+            <div className="form-group">
+              <label className="signup-label">
+                Phone number<span className="required">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                placeholder="Marry Doe"
+                className="signup-input"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="signup-label">
+                Email address<span className="required">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Marry Doe"
+                className="signup-input"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="signup-label">
+                Password<span className="required">*</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="Marry Doe"
+                className="signup-input"
+                required
+              />
+            </div>
+
+            <div className="form-group-group">
+              <div className="form-group">
+                <label className="signup-label">Company name</label>
+                <input
+                  type="text"
+                  name="companyName"
                   value={formData.companyName}
-                  onChange={(e) => handleInputChange('companyName', e.target.value)}
-                  className="mt-1 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#1D2226'
-                  }}
+                  onChange={handleInputChange}
+                  placeholder="Marry Doe"
+                  className="signup-input"
                 />
               </div>
-              
-              <div className="pt-4">
-                <p style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#1D2226',
-                  lineHeight: '17px',
-                  marginBottom: '12px'
-                }}>
-                  Are you an Agency?<span style={{ color: '#DD4A3D' }}>*</span>
-                </p>
-                <div className="flex gap-6">
-                  <label className="flex items-center">
-                    <input 
-                      type="radio" 
-                      name="agency" 
-                      checked={formData.isAgency}
-                      onChange={() => setFormData(prev => ({ ...prev, isAgency: true }))}
-                      className="w-4 h-4"
-                      style={{ 
-                        accentColor: '#642AF5',
-                        borderColor: '#919191'
-                      }}
+
+              <div className="form-group no-gap">
+                <label className="agency-label">
+                  Are you an Agency?<span className="required">*</span>
+                </label>
+                <div className="radio-group">
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="isAgency"
+                      value="yes"
+                      checked={formData.isAgency === "yes"}
+                      onChange={() => handleRadioChange("yes")}
+                      className="radio-input"
                     />
-                    <span className="ml-2" style={{
-                      fontFamily: 'Rubik',
-                      fontWeight: 400,
-                      fontSize: '14px',
-                      color: '#1D2226',
-                      lineHeight: '17px'
-                    }}>Yes</span>
+                    <span className="radio-custom"></span>
+                    <span className="radio-text">Yes</span>
                   </label>
-                  <label className="flex items-center">
-                    <input 
-                      type="radio" 
-                      name="agency" 
-                      checked={!formData.isAgency}
-                      onChange={() => setFormData(prev => ({ ...prev, isAgency: false }))}
-                      className="w-4 h-4"
-                      style={{ 
-                        accentColor: '#642AF5',
-                        borderColor: '#919191'
-                      }}
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="isAgency"
+                      value="no"
+                      checked={formData.isAgency === "no"}
+                      onChange={() => handleRadioChange("no")}
+                      className="radio-input"
                     />
-                    <span className="ml-2" style={{
-                      fontFamily: 'Rubik',
-                      fontWeight: 400,
-                      fontSize: '14px',
-                      color: '#1D2226',
-                      lineHeight: '17px'
-                    }}>No</span>
+                    <span className="radio-custom"></span>
+                    <span className="radio-text">No</span>
                   </label>
                 </div>
               </div>
-              
-              <div className="pt-8">
-                <Button 
-                  onClick={handleSubmit}
-                  className="w-full h-12 text-white font-medium rounded-lg border-0"
-                  style={{
-                    backgroundColor: '#6C25FF',
-                    fontFamily: 'Rubik',
-                    fontWeight: 500,
-                    fontSize: '16px',
-                    color: '#FFFFFF',
-                    lineHeight: '17px'
-                  }}
-                >
-                  Create Account
-                </Button>
-              </div>
             </div>
-          </div>
+
+            <button type="submit" className="signup-submit-btn">
+              Create Account
+            </button>
+          </form>
         </div>
       </div>
     </div>

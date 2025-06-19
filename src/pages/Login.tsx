@@ -1,136 +1,71 @@
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleLogin = () => {
-    // Simple validation for demo
-    if (email && password) {
-      navigate('/profile');
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/profile");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#F7F8F9' }}>
-      <div className="w-full max-w-sm mx-auto bg-white rounded-lg shadow-lg">
-        {/* Mobile App Container */}
-        <div className="w-full h-[812px] bg-white rounded-lg overflow-hidden relative">
-          {/* Content centered in mobile frame */}
-          <div className="flex flex-col justify-center h-full px-8">
-            <div className="text-left mb-8">
-              <h1 style={{
-                fontFamily: 'Rubik',
-                fontWeight: 500,
-                fontSize: '28px',
-                color: '#1D2226',
-                lineHeight: '36px',
-                marginBottom: '16px'
-              }}>
-                Signin to your<br />
-                PopX account
-              </h1>
-              <div className="space-y-1">
-                <p style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '14px',
-                  color: '#1D2226',
-                  lineHeight: '18px'
-                }}>
-                  Lorem ipsum dolor sit amet,
-                </p>
-                <p style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '14px',
-                  color: '#1D2226',
-                  lineHeight: '18px'
-                }}>
-                  consectetur adipiscing elit.
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <Label htmlFor="email" style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Email Address
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#919191',
-                    lineHeight: '17px'
-                  }}
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="password" style={{
-                  fontFamily: 'Rubik',
-                  fontWeight: 400,
-                  fontSize: '13px',
-                  color: '#6C25FF',
-                  lineHeight: '17px'
-                }}>
-                  Password
-                </Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="mt-2 h-12 rounded-lg"
-                  style={{ 
-                    borderColor: '#CBCBCB',
-                    fontFamily: 'Rubik',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    color: '#919191',
-                    lineHeight: '17px'
-                  }}
-                />
-              </div>
-              
-              <Button 
-                onClick={handleLogin}
-                className="w-full h-12 text-white font-medium rounded-lg mt-8 border-0"
-                style={{
-                  backgroundColor: '#CBCBCB',
-                  fontFamily: 'Rubik',
-                  fontWeight: 500,
-                  fontSize: '16px',
-                  color: '#FFFFFF',
-                  lineHeight: '17px'
-                }}
-              >
-                Login
-              </Button>
-            </div>
+    <div className="page-container">
+      <div className="mobile-container">
+        <div className="form-wrapper">
+          <div className="form-header">
+            <h1 className="form-title">
+              Signin to your
+              <br />
+              PopX account
+            </h1>
+            <p className="form-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
           </div>
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label className="form-label">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter email address"
+                className="form-input1"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="Enter password"
+                className="form-input2"
+                required
+              />
+            </div>
+
+            <button type="submit" className="login-submit-btn">
+              Login
+            </button>
+          </form>
         </div>
       </div>
     </div>
